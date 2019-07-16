@@ -6,7 +6,6 @@
 import pytest
 
 from click.testing import CliRunner
-
 from fpl_exporter import fpl_exporter
 from fpl_exporter import cli
 

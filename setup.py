@@ -11,11 +11,11 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = ["Click>=6.0", "requests"]
+requirements = ["Click>=6.0", "requests", "prometheus_client"]
 
 setup_requirements = ["pytest-runner"]
 
-test_requirements = ["pytest"]
+test_requirements = ["pytest", "responses"]
 
 setup(
     author="Toomas Ormisson",
