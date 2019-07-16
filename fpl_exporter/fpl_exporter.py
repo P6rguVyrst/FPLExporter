@@ -20,5 +20,6 @@ class APIClient:
     def get(self, endpoint):
         return self.__request("GET", endpoint)
 
+
 def prometheus_exporter(api_client):
     pass

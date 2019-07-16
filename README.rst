@@ -33,6 +33,30 @@ Features
   * HELP: fpl-exporter --help
   * DEBUG MODE: fpl-exporter -vd -p bootstrap-static
 
+
+Endpoints
+---------
+https://fantasy.premierleague.com/api/entry/{teamId}/history
+https://fantasy.premierleague.com/api/entry/{teamId}
+
+https://fantasy.premierleague.com/api/fixtures
+https://fantasy.premierleague.com/api/bootstrap-static
+ - events
+ - game_settings
+ - phases
+ - teams !
+ - total_players !
+ - elements !
+
+
+
+
+http://fantasy.premierleague.com/api/element-summary/{playerId}
+
+http://fantasy.premierleague.com/api/leagues-classic-standings/{leagueId}
+http://fantasy.premierleague.com/api/leagues-h2h-standings/{leagueId}
+
+
 Credits
 -------
 
