@@ -30,7 +30,8 @@ Prometheus Exporter for Fantasy Premier League.
 Features
 --------
 
-* TODO
+  * HELP: fpl-exporter --help
+  * DEBUG MODE: fpl-exporter -vd -p bootstrap-static
 
 Credits
 -------
