@@ -4,6 +4,11 @@ metadata:
   name: {{ include "prometheus-exporter.fullname" . }}
   labels:
 {{ include "prometheus-exporter.labels" . | indent 4 }}
+  annotations:
+    prometheus.path: "/"
+    prometheus.scrape: "true"
+    prometheus.port: "5000"
+    prometheus.scheme: "http"
 spec:
   type: {{ .Values.service.type }}
   ports:
