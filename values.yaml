@@ -1,0 +1,7 @@
+image:
+  repository: p6rguvyrst/fpl-exporter
+  tag: v0.0.1
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 5000
