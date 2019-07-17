@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from .fpl_exporter import APIClient
 from prometheus_client import Gauge
 import logging
 

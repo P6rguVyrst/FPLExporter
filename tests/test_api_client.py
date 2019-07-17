@@ -2,7 +2,7 @@
 
 """Tests for FPL API Integrations."""
 from pprint import pprint as pp
-from fpl_exporter.fpl_exporter import parse_metrics
+from fpl_exporter.fpl_exporter import get_metrics, parse_metrics
 
 import responses
 import requests
@@ -31,6 +31,16 @@ def test_api_response_fixture(bootstrap_fixture):
         assert element in bootstrap_fixture.keys()
         # pp(bootstrap_fixture[element])
 
+def test_get_metrics(api_client_fixture, bootstrap_fixture):
+    r = api_client_fixture.get("/", response_body=bootstrap_fixture)
+    assert r.status_code == 200
+    result = r.json()
+
+
+def test_parse_metrics(bootstrap_fixture):
+
+    metrics = parse_metrics(bootstrap_fixture)
+
 
 @responses.activate
 def test_total_players(bootstrap_fixture):
@@ -41,14 +51,5 @@ def test_total_players(bootstrap_fixture):
     response = requests.get(url)
     assert response.status_code == 200
     assert isinstance(bootstrap_fixture["total_players"], int)
-
-
-def test_get_metrics():
-    pass
-
-
-def test_parse_metrics(bootstrap_fixture):
-
-    metrics = parse_metrics(bootstrap_fixture)
 
 
