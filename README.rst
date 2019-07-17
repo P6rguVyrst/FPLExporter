@@ -26,6 +26,10 @@ Prometheus Exporter for Fantasy Premier League.
 * Free software: Apache Software License 2.0
 * Documentation: https://fpl-exporter.readthedocs.io.
 
+Installation & Upgrade
+----------------------
+
+helm upgrade fpl-exporter charts/incubator/prometheus-exporter --namespace exporter -f values.yaml --install
 
 Features
 --------
