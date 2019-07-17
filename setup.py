@@ -11,7 +11,7 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = ["Click>=6.0", "requests", "prometheus_client"]
+requirements = ["Click>=6.0", "requests", "prometheus_client", "responses"]
 
 setup_requirements = ["pytest-runner"]
 
