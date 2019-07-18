@@ -39,7 +39,23 @@ def test_get_metrics(api_client_fixture, bootstrap_fixture):
 
 def test_parse_metrics(bootstrap_fixture):
 
+    team_metrics = {}
     metrics = parse_metrics(bootstrap_fixture)
+    pp(metrics.keys())
+    events = metrics["events"]
+    game_settings = metrics["game_settings"]
+    phases = metrics["phases"]
+    teams = metrics["teams"]
+
+    for team in teams:
+        ticker = team["short_name"]
+        team_metrics[ticker] = {}
+        for metric in team:
+            team_metrics[ticker][metric] = team[metric]
+            pp(metric)
+        team_metrics[ticker]["strength"] = team["strength"]
+
+    pp(team_metrics)
 
 
 @responses.activate
