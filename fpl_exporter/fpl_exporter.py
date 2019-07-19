@@ -86,13 +86,16 @@ def parse_metrics(metrics):
 
     MONITOR.players.set(metrics["total_players"])
     MONITOR.fpl_assets.set(len(metrics["elements"]))
+
     parse_teams(metrics["teams"])
+    parse_assets(metrics["elements"])
 
     end = time.time()
     elapsed = end - start
 
     MONITOR.monitor_working_time.set(elapsed)
     return metrics
+
 
 def parse_teams(teams):
     for team in teams:
@@ -120,3 +123,11 @@ def team_availability(availability):
         "False": "available",
     }
     return router.get(availability, "unknown")
+
+def parse_assets(assets):
+    for asset in assets:
+        key = asset["web_name"]
+        MONITOR.ict_index.labels(key).set(asset["ict_index"])
+        MONITOR.influence.labels(key).set(asset["influence"])
+        MONITOR.creativity.labels(key).set(asset["creativity"])
+        MONITOR.threat.labels(key).set(asset["threat"])

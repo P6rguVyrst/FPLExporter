@@ -45,17 +45,30 @@ def test_parse_metrics(bootstrap_fixture):
     events = metrics["events"]
     game_settings = metrics["game_settings"]
     phases = metrics["phases"]
+
     teams = metrics["teams"]
+    total_players = metrics["total_players"]
+
+    elements = metrics["elements"]
+
+    element_stats = metrics["element_stats"]
+    element_types = metrics["element_types"]
+
+    #pp(element_stats)
+    #pp(element_types)
 
     for team in teams:
         ticker = team["short_name"]
         team_metrics[ticker] = {}
         for metric in team:
             team_metrics[ticker][metric] = team[metric]
-            pp(metric)
         team_metrics[ticker]["strength"] = team["strength"]
 
-    pp(team_metrics)
+    #pp(team_metrics)
+    for player in elements:
+        pass
+        # element_type
+        # news_added
 
 
 @responses.activate
@@ -67,5 +80,3 @@ def test_total_players(bootstrap_fixture):
     response = requests.get(url)
     assert response.status_code == 200
     assert isinstance(bootstrap_fixture["total_players"], int)
-
-
