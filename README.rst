@@ -36,13 +36,13 @@ helm upgrade fpl-exporter charts/incubator/prometheus-exporter --namespace expor
 Internal Metrics
 ----------------
 
-+-------------------------------------------+----------------------------------------+
-| Metric                                    | Description                                       |
-+===========================================+========================================+
-| prometheus_exporter_fpl_work_time         | Number of FPL players                             |
-+-------------------------------------------+----------------------------------------+
-| prometheus_exporter_fpl_api_response_time | Number of Premier League assets (players)         |
-+-------------------------------------------+----------------------------------------+
++--------------------------------------------+---------------------------------------------------+
+| Metric                                     | Description                                       |
++============================================+===================================================+
+| prometheus_exporter_fpl_work_time          | Time spemnt processing API response data          |
++--------------------------------------------+---------------------------------------------------+
+| prometheus_exporter_fpl_api_response_time  | API response time                                 |
++--------------------------------------------+---------------------------------------------------+
 
 
 Generic Metrics
