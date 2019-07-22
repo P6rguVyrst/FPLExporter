@@ -2,7 +2,8 @@
 
 """Console script for fpl_exporter."""
 from .exceptions import UndefinedAPIPathException
-from .fpl_exporter import APIClientFactory, prometheus_exporter
+from .fpl_exporter import prometheus_exporter
+from .api import APIClientFactory
 import os
 import sys
 import click

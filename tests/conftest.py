@@ -1,7 +1,7 @@
 import json
 import pytest
 import responses
-from fpl_exporter.fpl_exporter import APIClientFactory
+from fpl_exporter.api import APIClientFactory
 
 
 @pytest.fixture

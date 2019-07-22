@@ -106,6 +106,16 @@ Asset Metrics
 +--------------------------------------------+---------------------------------------------------+
 | fpl_asset_threat                           | Asset Threat                                      | 
 +--------------------------------------------+---------------------------------------------------+
+| fpl_asset_selected_by_percent              | Asset Selected by people (percentage)             |
++--------------------------------------------+---------------------------------------------------+
+| fpl_asset_form                             | Asset Form                                        |
++--------------------------------------------+---------------------------------------------------+
+| fpl_asset_bonus                            | Asset Bonus                                       |
++--------------------------------------------+---------------------------------------------------+
+| fpl_asset_bps                              | Asset Bonus Point Scores                          |
++--------------------------------------------+---------------------------------------------------+
+
+
 
 **NB! There's more metrics instrumented, but since I haven't yet found use for them and don't want to overload exporter with useless functionality. Defined metrics can be found at fpl_exporter/metrics.py.**
 
