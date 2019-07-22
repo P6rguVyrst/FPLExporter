@@ -8,19 +8,22 @@ LOGGER = logging.getLogger(__name__)
 
 class FPLMetrics:
 
+    # General
     monitor_working_time = Gauge(
         "prometheus_exporter_fpl_work_time", "Exporter working time."
     )
     monitor_api_response_time = Gauge(
         "prometheus_exporter_fpl_api_response_time", "Exporter FPL API response time."
     )
-
-
     players = Gauge("fpl_players_total", "Number of FPL players.")
     fpl_assets = Gauge(
         "fpl_assets_total", "Number of football players in Premier League."
     )
-    # TEAMS
+
+    # Teams
+    availability = Enum(
+        "fpl_team_availability", "Team availability in current gameweek.", ["team"], states=["unknown", "available", "unavailable"]
+    )
     strength_attack_home = Gauge(
         "fpl_team_strength_attack_home", "Team offensive strength on home games.", ["team"]
     )
@@ -45,10 +48,6 @@ class FPLMetrics:
     strength = Gauge(
         "fpl_team_strength", "Team strength.", ["team"]
     )
-    #
-    availability = Enum(
-        "fpl_team_unavailable", "Team availability in current gameweek.", ["team"], states=["unknown", "available", "unavailable"]
-    )
     position = Gauge(
         "fpl_team_table_position", "Team position in Premier League table.", ["team"]
     )
@@ -56,7 +55,7 @@ class FPLMetrics:
         "fpl_team_table_points", "Team points accumulated in Premier League table.", ["team"]
     )
     played = Gauge(
-        "fpl_team_games_played", "Games won.", ["team"]
+        "fpl_team_games_played", "Games played.", ["team"]
     )
     win = Gauge(
         "fpl_team_games_won", "Games won.", ["team"]
@@ -69,12 +68,12 @@ class FPLMetrics:
     )
 
     # Players
-    # ICT
     ict_index = Gauge("fpl_asset_ict_index", "", ["asset"])
     influence = Gauge("fpl_asset_influence", "", ["asset"])
     creativity = Gauge("fpl_asset_creativity", "", ["asset"])
     threat = Gauge("fpl_asset_threat", "", ["asset"])
 
+    # Players Unused
     assists = Gauge("fpl_asset_assists", "", ["asset"])
     bonus = Gauge("fpl_asset_bonus", "", ["asset"])
     bps = Gauge("fpl_asset_bps", "", ["asset"])
@@ -85,25 +84,20 @@ class FPLMetrics:
     cost_change_event_fall = Gauge("fpl_asset_cost_change_event_fall", "", ["asset"])
     cost_change_start = Gauge("fpl_asset_cost_change_start", "", ["asset"])
     cost_change_start_fall = Gauge("fpl_asset_cost_change_start_fall", "", ["asset"])
-
     minutes = Gauge("fpl_asset_minutes", "", ["asset"])
     selected_by_percent = Gauge("fpl_asset_selected_by_percent", "", ["asset"])
     total_points = Gauge("fpl_asset_total_points", "", ["asset"])
-
     transfers_in = Gauge("fpl_asset_transfers_in", "", ["asset"])
     transfers_in_event = Gauge("fpl_asset_transfers_in_event", "", ["asset"])
     transfers_out = Gauge("fpl_asset_transfers_out", "", ["asset"])
     transfers_out_event = Gauge("fpl_asset_transfers_out_event", "", ["asset"])
-
     #special = Gauge("fpl_asset_special", "", ["asset"])
     #squad_number = Gauge("fpl_asset_squad_number", "", ["asset"])
     #status = Gauge("fpl_asset_status", "", ["asset"])
-
     form = Gauge("fpl_asset_form", "", ["asset"])
     now_cost = Gauge("fpl_asset_now_cost", "", ["asset"])
     value_form = Gauge("fpl_asset_value_form", "", ["asset"])
     value_season = Gauge("fpl_asset_value_season", "", ["asset"])
-
     goals_conceded = Gauge("fpl_asset_goals_conceded", "", ["asset"])
     goals_scored = Gauge("fpl_asset_goals_scored", "", ["asset"])
     own_goals = Gauge("fpl_asset_own_goals", "", ["asset"])
@@ -113,12 +107,9 @@ class FPLMetrics:
     red_cards = Gauge("fpl_asset_red_cards", "", ["asset"])
     yellow_cards = Gauge("fpl_asset_yellow_cards", "", ["asset"])
     saves = Gauge("fpl_asset_saves", "", ["asset"])
-
     dreamteam_count = Gauge("fpl_asset_dreamteam_count", "", ["asset"])
     #in_dreamteam = Gauge("fpl_asset_in_dreamteam", "", ["asset"])
     #newa = Gauge("fpl_asset_newsnews", "", ["asset"])
-
-
     event_points = Gauge("fpl_asset_event_points", "", ["asset"])
 
 
