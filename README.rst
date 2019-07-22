@@ -134,16 +134,6 @@ https://fantasy.premierleague.com/api/entry/{teamId}
 
 https://fantasy.premierleague.com/api/fixtures
 https://fantasy.premierleague.com/api/bootstrap-static
- - events
- - game_settings
- - phases
- - teams !
- - total_players !
- - elements !
-
-
-
-
 http://fantasy.premierleague.com/api/element-summary/{playerId}
 
 http://fantasy.premierleague.com/api/leagues-classic-standings/{leagueId}
