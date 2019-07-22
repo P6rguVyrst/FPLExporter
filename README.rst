@@ -107,6 +107,8 @@ Asset Metrics
 | fpl_asset_threat                           | Asset Threat                                      | 
 +--------------------------------------------+---------------------------------------------------+
 
+**NB! There's more metrics instrumented, but since I haven't yet found use for them and don't want to overload exporter with useless functionality. Defined metrics can be found at fpl_exporter/metrics.py.**
+
 
 Features
 --------
