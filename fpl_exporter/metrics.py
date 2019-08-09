@@ -75,14 +75,14 @@ class FPLMetrics:
     draw = Gauge("fpl_team_games_drawn", "Games drawn.", ["team"])
 
     # Players
-    ict_index = Gauge("fpl_asset_ict_index", "", ["asset"])
-    influence = Gauge("fpl_asset_influence", "", ["asset"])
-    creativity = Gauge("fpl_asset_creativity", "", ["asset"])
-    threat = Gauge("fpl_asset_threat", "", ["asset"])
-    selected_by_percent = Gauge("fpl_asset_selected_by_percent", "", ["asset"])
-    form = Gauge("fpl_asset_form", "", ["asset"])
-    bonus = Gauge("fpl_asset_bonus", "", ["asset"])
-    bps = Gauge("fpl_asset_bps", "", ["asset"])
+    ict_index = Gauge("fpl_asset_ict_index", "", ["asset", "team"])
+    influence = Gauge("fpl_asset_influence", "", ["asset", "team"])
+    creativity = Gauge("fpl_asset_creativity", "", ["asset", "team"])
+    threat = Gauge("fpl_asset_threat", "", ["asset", "team"])
+    selected_by_percent = Gauge("fpl_asset_selected_by_percent", "", ["asset", "team"])
+    form = Gauge("fpl_asset_form", "", ["asset", "team"])
+    bonus = Gauge("fpl_asset_bonus", "", ["asset", "team"])
+    bps = Gauge("fpl_asset_bps", "", ["asset", "team"])
 
     # Players - unused
     transfers_in = Gauge("fpl_asset_transfers_in", "", ["asset"])

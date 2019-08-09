@@ -23,6 +23,31 @@ def prometheus_exporter(api_client):
 
 
 class FPLExporter:
+
+    def __init__(self):
+        self.teams_dict = {
+            "3": "ARS",
+            "7": "AVL",
+            "91": "BOU",
+            "36": "BHA",
+            "90": "BUR",
+            "8": "CHE",
+            "31": "CRY",
+            "11": "EVE",
+            "13": "LEI",
+            "14": "LIV",
+            "43": "MCI",
+            "1": "MUN",
+            "4": "NEW",
+            "45": "NOR",
+            "49": "SHU",
+            "20": "SOU",
+            "6": "TOT",
+            "57": "WAT",
+            "21": "WHU",
+            "39": "WOL",
+        }
+
     def get_metrics(self, api_client):
         "Return response object."
 
@@ -76,13 +101,15 @@ class FPLExporter:
     def parse_assets(self, assets):
         for asset in assets:
             key = asset["web_name"]
-            MONITOR.ict_index.labels(key).set(asset["ict_index"])
-            MONITOR.influence.labels(key).set(asset["influence"])
-            MONITOR.creativity.labels(key).set(asset["creativity"])
-            MONITOR.threat.labels(key).set(asset["threat"])
-            MONITOR.selected_by_percent.labels(key).set(
+            team = self.teams_dict[str(asset["team_code"])]
+
+            MONITOR.ict_index.labels(key, team).set(asset["ict_index"])
+            MONITOR.influence.labels(key, team).set(asset["influence"])
+            MONITOR.creativity.labels(key, team).set(asset["creativity"])
+            MONITOR.threat.labels(key, team).set(asset["threat"])
+            MONITOR.selected_by_percent.labels(key, team).set(
                 float(asset["selected_by_percent"])
             )
-            MONITOR.form.labels(key).set(asset["form"])
-            MONITOR.bonus.labels(key).set(asset["bonus"])
-            MONITOR.bps.labels(key).set(asset["bps"])
+            MONITOR.form.labels(key, team).set(asset["form"])
+            MONITOR.bonus.labels(key, team).set(asset["bonus"])
+            MONITOR.bps.labels(key, team).set(asset["bps"])
